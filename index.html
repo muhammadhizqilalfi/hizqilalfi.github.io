@@ -3,9 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hizqil Alfi</title>
+    <title>Portofolio | Hizqil Alfi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/ha_1.png" type="image/x-icon">
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>HYYYY</h1>
+    <header id="header">
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <img src="./assets/ha_1.png" alt="logo" class="logo">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#footer">About</a></li>
+                    <li><a href="#project">Projects</a></li>
+                    <li><a href="#skills">Tech Stack</a></li>  
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="profile" id="home">
+            <h1>
+                <a href="" class="typewrite" data-period="2000" data-type='[ "こんにちは、私はヒズキル・アルフィです", "Hello, Im Hizqil Alfi.", "안녕하세요 히즈킬 알피입니다", "Halo, saya Hizqil Alfi." ]'>
+                  <span class="wrap"></span>
+                </a>
+            </h1>
+            <p class="desc">A Undergraduate Informatic Student at Universitas Syiah Kuala</p>
+            <a href="#skills" class="button">Next</a>
+        </div>
+        <div class="skills" id="skills">
+            <p class="skills_name">Tech Stack</p>
+            <div class="divider"></div>
+            <div class="stack">
+                <div class="box"><p>HTML</p></div>
+                <div class="box"><p>CSS</p></div>
+                <div class="box"><p>JavaScript</p></div>
+                <div class="box"><p>Laravel</p></div>
+                <div class="box"><p>PHP</p></div>
+                <div class="box"><p>MySQL</p></div>
+                <div class="box"><p>Python</p></div>
+                <div class="box"><p>Java</p></div>
+                <div class="box"><p>C</p></div>
+                <div class="box"><p>C++</p></div>
+                <div class="box"><p>Godot</p></div>
+            </div>
+        </div>
+        <div class="project" id="project">
+            <p class="project_name">Latest Project</p>
+            <div class="divider"></div>
+            <div class="card">
+                <div class="card1">
+                    <div class="card_text">
+                        <p class="card_p">MUBES HMIF USK 2024</p>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card_text">
+                        <p class="card_p">2D MOBILE GAME</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="footer_name">
+            <p>Copyright 2025 | Muhammad Hizqil Alfi</p>
+            <div class="contact">
+                <a href="mailto:hizqilhizqil308@gmail.com"><img src="./assets/pngtree-google-email-mail-application-vector-png-image_9183278.png" alt="gmail" class="gmail"></a>
+                <a href="https://github.com/N1tr12"><img src="./assets/github.png" alt="github" class="github"></a>
+                <a href="https://www.instagram.com/alfi.hzql12?igsh"><img src="./assets/Instagram_icon.png" alt="instagram" class="instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        });
+
+        var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+
+    </script>
 </body>
 </html>
