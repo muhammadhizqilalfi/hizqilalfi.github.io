@@ -1,153 +1,471 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio | Hizqil Alfi</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./assets/ha_1.png" type="image/x-icon">
-    <script type="text/javascript" src="main.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header id="header">
-        <div class="navbar">
-            <nav>
-                <ul>
-                    <img src="./assets/ha_1.png" alt="logo" class="logo">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#footer">About</a></li>
-                    <li><a href="#project">Projects</a></li>
-                    <li><a href="#skills">Tech Stack</a></li>  
-                </ul>
-            </nav>
-        </div>
+    <link rel="shortcut icon" href="./assets/ha_1.png" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Animate gradient background */
+      @keyframes gradient-x {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+      .animate-gradient-x {
+        background-size: 200% 200%;
+        animation: gradient-x 15s ease infinite;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-blue-600 via-pink-600 to-teal-400 animate-gradient-x font-mono text-white overflow-x-hidden"
+  >
+    <!-- HEADER / NAVBAR -->
+    <header
+      id="header"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-300 h-24"
+    >
+      <nav
+        class="max-w-7xl mx-auto flex items-center justify-between px-6 h-full"
+      >
+        <!-- Logo awal -->
+        <img
+          src="./assets/ha_1.png"
+          alt="logo"
+          class="w-16 transition-all duration-300"
+          id="logo-light"
+        />
+        <!-- Logo setelah scroll -->
+        <img
+          src="./assets/ha_2.png"
+          alt="logo"
+          class="w-16 transition-all duration-300 hidden"
+          id="logo-dark"
+        />
+
+        <!-- Desktop Nav -->
+        <ul
+          id="nav-links"
+          class="hidden md:flex space-x-6 items-center text-white transition-all duration-300"
+        >
+          <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+          <li><a href="#footer" class="hover:text-gray-300">About</a></li>
+          <li><a href="#project" class="hover:text-gray-300">Projects</a></li>
+          <li><a href="#skills" class="hover:text-gray-300">Tech Stack</a></li>
+        </ul>
+
+        <!-- Mobile Hamburger -->
+        <button
+          id="hamburger"
+          class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1"
+        >
+          <span class="block w-8 h-0.5 bg-white transition-all"></span>
+          <span class="block w-8 h-0.5 bg-white transition-all"></span>
+          <span class="block w-8 h-0.5 bg-white transition-all"></span>
+        </button>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="absolute left-0 w-full bg-black text-white flex flex-col items-start py-4 opacity-0 pointer-events-none transition-all duration-300"
+      >
+        <a
+          href="#home"
+          class="mobile-link px-6 py-2 w-full opacity-0 translate-x-[-50px]"
+          >Home</a
+        >
+        <a
+          href="#footer"
+          class="mobile-link px-6 py-2 w-full opacity-0 translate-x-[-50px]"
+          >About</a
+        >
+        <a
+          href="#project"
+          class="mobile-link px-6 py-2 w-full opacity-0 translate-x-[-50px]"
+          >Projects</a
+        >
+        <a
+          href="#skills"
+          class="mobile-link px-6 py-2 w-full opacity-0 translate-x-[-50px]"
+          >Tech Stack</a
+        >
+      </div>
     </header>
-    <main>
-        <div class="profile" id="home">
-            <h1>
-                <a href="" class="typewrite" data-period="2000" data-type='[ "こんにちは、私はヒズキル・アルフィです", "Hello, Im Hizqil Alfi.", "안녕하세요 히즈킬 알피입니다", "Halo, saya Hizqil Alfi." ]'>
-                  <span class="wrap"></span>
-                </a>
-            </h1>
-            <p class="desc">A Undergraduate Informatic Student at Universitas Syiah Kuala</p>
-            <a href="#skills" class="button">Next</a>
+
+    <!-- MAIN -->
+    <main class="pt-24">
+      <!-- PROFILE -->
+      <section
+        id="home"
+        class="flex flex-col items-center justify-center min-h-screen text-center px-4 space-y-6 opacity-0 translate-y-12 transition-all duration-700 ease-out"
+        data-animate
+      >
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
+          <a
+            href=""
+            class="typewrite"
+            data-period="2000"
+            data-type='[ "こんにちは、私はヒズキル・アルフィです", "Hello, Im Hizqil Alfi.", "안녕하세요 히즈킬 알피입니다", "Halo, saya Hizqil Alfi." ]'
+          >
+            <span class="wrap"></span>
+          </a>
+        </h1>
+        <p class="text-lg sm:text-xl">
+          A Undergraduate Informatic Student at Universitas Syiah Kuala
+        </p>
+        <a
+          href="#skills"
+          class="px-6 py-3 border-2 border-white rounded-full hover:bg-white hover:text-black transition"
+          >Next</a
+        >
+      </section>
+
+      <!-- SKILLS STACK -->
+      <section
+        id="skills"
+        class="bg-black text-white text-center py-16 px-4 opacity-0 translate-y-12 transition-all duration-700 ease-out"
+        data-animate
+      >
+        <p
+          class="text-3xl font-extrabold mb-6 border-b-2 border-white inline-block pb-2"
+        >
+          Tech Stack
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 mt-6">
+          <!-- HTML -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#e34c26] text-white transition transform hover:scale-105"
+          >
+            HTML
+          </div>
+
+          <!-- CSS -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#264de4] text-white transition transform hover:scale-105"
+          >
+            CSS
+          </div>
+
+          <!-- JavaScript -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#f7df1e] text-white transition transform hover:scale-105"
+          >
+            JavaScript
+          </div>
+
+          <!-- Laravel -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#ff2d20] text-white transition transform hover:scale-105"
+          >
+            Laravel
+          </div>
+
+          <!-- PHP -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#777bb4] text-white transition transform hover:scale-105"
+          >
+            PHP
+          </div>
+
+          <!-- MySQL -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#00758f] text-white transition transform hover:scale-105"
+          >
+            MySQL
+          </div>
+
+          <!-- Python -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#3776ab] text-white transition transform hover:scale-105"
+          >
+            Python
+          </div>
+
+          <!-- Java -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#f89820] text-white transition transform hover:scale-105"
+          >
+            Java
+          </div>
+
+          <!-- C -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#a8b9cc] text-white transition transform hover:scale-105"
+          >
+            C
+          </div>
+
+          <!-- C++ -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#00599c] text-white transition transform hover:scale-105"
+          >
+            C++
+          </div>
+
+          <!-- Godot -->
+          <div
+            class="px-4 py-2 border-2 border-white rounded cursor-pointer bg-gray-800 hover:bg-[#478cbf] text-white transition transform hover:scale-105"
+          >
+            Godot
+          </div>
         </div>
-        <div class="skills" id="skills">
-            <p class="skills_name">Tech Stack</p>
-            <div class="divider"></div>
-            <div class="stack">
-                <div class="box"><p>HTML</p></div>
-                <div class="box"><p>CSS</p></div>
-                <div class="box"><p>JavaScript</p></div>
-                <div class="box"><p>Laravel</p></div>
-                <div class="box"><p>PHP</p></div>
-                <div class="box"><p>MySQL</p></div>
-                <div class="box"><p>Python</p></div>
-                <div class="box"><p>Java</p></div>
-                <div class="box"><p>C</p></div>
-                <div class="box"><p>C++</p></div>
-                <div class="box"><p>Godot</p></div>
-            </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section
+        id="project"
+        class="text-center py-16 px-4 bg-white text-black opacity-0 translate-y-12 transition-all duration-700 ease-out"
+        data-animate
+      >
+        <p
+          class="text-3xl font-extrabold mb-6 border-b-2 border-black inline-block pb-2"
+        >
+          Latest Project
+        </p>
+        <div
+          class="flex flex-col md:flex-row justify-center items-center gap-8 mt-8"
+        >
+          <!-- Project 1 -->
+          <div
+            class="relative w-80 h-52 md:w-96 md:h-64 bg-[url('./assets/project1.png')] bg-cover rounded-xl border-2 border-black shadow-lg hover:scale-105 transform transition cursor-pointer"
+            onclick="openModal('./assets/project1.png')"
+          >
+            <p
+              class="absolute bottom-0 w-full bg-black bg-opacity-80 text-white py-2 rounded-b-xl text-sm md:text-base"
+            >
+              MUBES HMIF USK 2024
+            </p>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="relative w-80 h-52 md:w-96 md:h-64 bg-[url('./assets/project2.png')] bg-cover rounded-xl border-2 border-black shadow-lg hover:scale-105 transform transition cursor-pointer"
+            onclick="openModal('./assets/project2.png')"
+          >
+            <p
+              class="absolute bottom-0 w-full bg-black bg-opacity-80 text-white py-2 rounded-b-xl text-sm md:text-base"
+            >
+              2D MOBILE GAME
+            </p>
+          </div>
         </div>
-        <div class="project" id="project">
-            <p class="project_name">Latest Project</p>
-            <div class="divider"></div>
-            <div class="card">
-                <div class="card1">
-                    <div class="card_text">
-                        <p class="card_p">MUBES HMIF USK 2024</p>
-                    </div>
-                </div>
-                <div class="card2">
-                    <div class="card_text">
-                        <p class="card_p">2D MOBILE GAME</p>
-                    </div>
-                </div>
-            </div>
+      </section>
+
+      <!-- MODAL -->
+      <div
+        id="project-modal"
+        class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-50"
+      >
+        <div class="relative">
+          <button
+            class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-gray-400"
+            onclick="closeModal()"
+          >
+            &times;
+          </button>
+          <img
+            id="modal-img"
+            src=""
+            class="max-w-full max-h-screen rounded-lg shadow-lg"
+          />
         </div>
+      </div>
     </main>
-    <footer id="footer">
-        <div class="footer_name">
-            <p>Copyright 2025 | Muhammad Hizqil Alfi</p>
-            <div class="contact">
-                <a href="mailto:hizqilhizqil308@gmail.com"><img src="./assets/pngtree-google-email-mail-application-vector-png-image_9183278.png" alt="gmail" class="gmail"></a>
-                <a href="https://github.com/N1tr12"><img src="./assets/github.png" alt="github" class="github"></a>
-                <a href="https://www.instagram.com/alfi.hzql12?igsh"><img src="./assets/Instagram_icon.png" alt="instagram" class="instagram"></a>
-            </div>
-        </div>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="bg-black text-white text-center py-8">
+      <p>Copyright 2025 | Muhammad Hizqil Alfi</p>
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="mailto:hizqilhizqil308@gmail.com"
+          ><img
+            src="./assets/pngtree-google-email-mail-application-vector-png-image_9183278.png"
+            class="w-6 sm:w-8 hover:scale-125 transition"
+        /></a>
+        <a href="https://github.com/N1tr12"
+          ><img
+            src="./assets/github.png"
+            class="w-6 sm:w-8 hover:scale-125 transition"
+        /></a>
+        <a href="https://www.instagram.com/alfi.hzql12?igsh"
+          ><img
+            src="./assets/Instagram_icon.png"
+            class="w-6 sm:w-8 hover:scale-125 transition"
+        /></a>
+      </div>
     </footer>
 
+    <!-- SCRIPTS -->
     <script>
-        document.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
+      const header = document.getElementById("header");
+      const logoLight = document.getElementById("logo-light");
+      const logoDark = document.getElementById("logo-dark");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburger = document.getElementById("hamburger");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
 
-        if (window.scrollY > 0) {
-            header.classList.add('scrolled');
+      // Navbar shrink + logo change + mobile menu bg
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        if (scrollY > 50) {
+          header.classList.add(
+            "h-16",
+            "bg-black",
+            "bg-opacity-95",
+            "shadow-lg"
+          );
+          header.classList.remove("h-24");
+          logoLight.classList.add("hidden");
+          logoDark.classList.remove("hidden");
+          logoDark.classList.add("w-12");
+          logoDark.classList.remove("w-16");
+          mobileMenu.classList.add("bg-black", "bg-opacity-95");
         } else {
-            header.classList.remove('scrolled');
+          header.classList.remove(
+            "h-16",
+            "bg-black",
+            "bg-opacity-95",
+            "shadow-lg"
+          );
+          header.classList.add("h-24");
+          logoLight.classList.remove("hidden");
+          logoDark.classList.add("hidden");
+          logoDark.classList.add("w-16");
+          logoDark.classList.remove("w-12");
+          mobileMenu.classList.remove("bg-black", "bg-opacity-95");
         }
-        });
+      });
 
-        var TxtType = function(el, toRotate, period) {
+      // Mobile hamburger toggle with animation
+      let mobileOpen = false;
+      hamburger.addEventListener("click", () => {
+        mobileOpen = !mobileOpen;
+        if (mobileOpen) {
+          mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+          mobileMenu.classList.add("opacity-100", "pointer-events-auto");
+          mobileLinks.forEach((link, i) => {
+            link.style.transition = `all 0.3s ease ${(i + 1) * 0.1}s`;
+            link.classList.remove("opacity-0", "translate-x-[-50px]");
+            link.classList.add("opacity-100", "translate-x-0");
+          });
+        } else {
+          mobileLinks.forEach((link) => {
+            link.style.transition = `all 0.2s ease`;
+            link.classList.add("opacity-0", "translate-x-[-50px]");
+            link.classList.remove("opacity-100", "translate-x-0");
+          });
+          mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
+          mobileMenu.classList.add("opacity-0", "pointer-events-none");
+        }
+      });
+
+      // Scroll animation for sections
+      const animateElements = document.querySelectorAll("[data-animate]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove("opacity-0", "translate-y-12");
+              entry.target.classList.add("opacity-100", "translate-y-0");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      animateElements.forEach((el) => observer.observe(el));
+
+      // Typewriter
+      var TxtType = function (el, toRotate, period) {
         this.toRotate = toRotate;
         this.el = el;
         this.loopNum = 0;
         this.period = parseInt(period, 10) || 2000;
-        this.txt = '';
+        this.txt = "";
         this.tick();
         this.isDeleting = false;
-    };
-
-    TxtType.prototype.tick = function() {
+      };
+      TxtType.prototype.tick = function () {
         var i = this.loopNum % this.toRotate.length;
         var fullTxt = this.toRotate[i];
-
         if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
         } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
-
-        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-
+        this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
         var that = this;
         var delta = 200 - Math.random() * 100;
-
-        if (this.isDeleting) { delta /= 2; }
-
+        if (this.isDeleting) delta /= 2;
         if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
+          delta = this.period;
+          this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === "") {
+          this.isDeleting = false;
+          this.loopNum++;
+          delta = 500;
         }
-
-        setTimeout(function() {
-        that.tick();
+        setTimeout(function () {
+          that.tick();
         }, delta);
-    };
-
-    window.onload = function() {
-        var elements = document.getElementsByClassName('typewrite');
-        for (var i=0; i<elements.length; i++) {
-            var toRotate = elements[i].getAttribute('data-type');
-            var period = elements[i].getAttribute('data-period');
-            if (toRotate) {
-              new TxtType(elements[i], JSON.parse(toRotate), period);
-            }
+      };
+      window.onload = function () {
+        var elements = document.getElementsByClassName("typewrite");
+        for (var i = 0; i < elements.length; i++) {
+          var toRotate = elements[i].getAttribute("data-type");
+          var period = elements[i].getAttribute("data-period");
+          if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+          }
         }
-
         var css = document.createElement("style");
         css.type = "text/css";
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
-    };
+      };
 
+      // Update posisi dropdown sesuai navbar
+      function updateMobileMenuPosition() {
+        const headerHeight = header.offsetHeight;
+        mobileMenu.style.top = `${headerHeight}px`;
+      }
+
+      // Panggil saat load dan resize
+      updateMobileMenuPosition();
+      window.addEventListener("resize", updateMobileMenuPosition);
+      window.addEventListener("scroll", updateMobileMenuPosition);
+
+      // Open modal with image
+      function openModal(src) {
+        const modal = document.getElementById("project-modal");
+        const modalImg = document.getElementById("modal-img");
+        modalImg.src = src;
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        modal.classList.add("opacity-100", "pointer-events-auto");
+      }
+
+      // Close modal
+      function closeModal() {
+        const modal = document.getElementById("project-modal");
+        modal.classList.remove("opacity-100", "pointer-events-auto");
+        modal.classList.add("opacity-0", "pointer-events-none");
+      }
+
+      // Close modal on click outside image
+      document
+        .getElementById("project-modal")
+        .addEventListener("click", (e) => {
+          if (e.target.id === "project-modal") closeModal();
+        });
     </script>
-</body>
+  </body>
 </html>
